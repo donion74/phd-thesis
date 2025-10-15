@@ -5,8 +5,10 @@ BUILD_DIR = build
 
 all: $(BUILD_DIR)/thesis.pdf
 
+# $< outputs first prerequesite
+# $@ outputs target
 $(BUILD_DIR)/thesis.pdf: thesis.tex $(BUILD_DIR)
-	latexmk $(TEXFLAGS) -jobname=$(@:.pdf=) -f $<
+	latexmk $(TEXFLAGS) -jobname=$(@:.pdf=) $<
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
